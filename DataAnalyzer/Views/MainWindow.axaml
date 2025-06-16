@@ -47,7 +47,7 @@
         </Grid>
 
         <TreeDataGrid HorizontalAlignment="Stretch"
-                      CanUserSortColumns="{Binding !IsLoading}"
+                      CanUserSortColumns="False"
                       VerticalAlignment="Stretch"
                       Grid.Row="1"
                       Source="{Binding FlatTreeDataGridSource}" />

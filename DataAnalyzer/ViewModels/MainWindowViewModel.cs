@@ -85,6 +85,7 @@ public partial class MainWindowViewModel : ViewModelBase
             if (task.IsFaulted)
             {
                 IsError = true;
+                IsLoading = false;
                 StatusMessage = "Ошибка загрузки записей, перезагрузите программу или обратитесь к администратору!";
                 Debug.WriteLine(task.Exception);
             }
@@ -103,6 +104,7 @@ public partial class MainWindowViewModel : ViewModelBase
                 if (task.IsFaulted)
                 {
                     IsError = true;
+                    IsImporting = false;
                     StatusMessage = "Во время импорта произошла ошибка, проверьте импортируемые данные!";
 
                     if (_importingFileMetadata != null)
