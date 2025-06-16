@@ -8,7 +8,7 @@
 
 * [.NET 9 SDK (предварительная версия или финальный релиз)](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
 * Git
-* Любая IDE с поддержкой Avalonia (например, [Rider](https://www.jetbrains.com/rider/) или [Visual Studio 2022/2025](https://visualstudio.microsoft.com/) с установленным Avalonia Extension)
+* Любая IDE с поддержкой Avalonia (например, [Rider](https://www.jetbrains.com/rider/) или [Visual Studio 2022](https://visualstudio.microsoft.com/) с установленным Avalonia Extension)
 
 ---
 
