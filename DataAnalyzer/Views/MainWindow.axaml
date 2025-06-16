@@ -1,0 +1,76 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:DataAnalyzer.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="DataAnalyzer.Views.MainWindowView"
+        x:DataType="vm:MainWindowViewModel"
+        MinHeight="300"
+        MinWidth="860"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Анализатор записей">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="56" />
+            <RowDefinition />
+            <RowDefinition Height="25" />
+        </Grid.RowDefinitions>
+        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="400"/>
+            </Grid.ColumnDefinitions>
+            <Button
+                IsEnabled="{Binding !IsLoading}"
+                HorizontalContentAlignment="Center"
+                HorizontalAlignment="Left"
+                Command="{Binding OpenFileCommand}"
+                Content="Импортировать записи..."
+                Grid.Column="0"
+                Margin="6" />
+            <StackPanel Margin="12" Orientation="Vertical"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Grid.Column="1" >
+                <TextBlock
+                    Text="{Binding TotalLines, StringFormat='Всего обработано строк: {0}'}"/>
+            </StackPanel>
+        </Grid>
+
+        <TreeDataGrid HorizontalAlignment="Stretch"
+                      CanUserSortColumns="{Binding !IsLoading}"
+                      VerticalAlignment="Stretch"
+                      Grid.Row="1"
+                      Source="{Binding FlatTreeDataGridSource}" />
+
+        <Border Grid.Row="2" Background="LightGray" BorderBrush="Gray" BorderThickness="0,1,0,0">
+            <Grid Margin="5, 2">
+                <TextBlock Text="{Binding StatusMessage}" VerticalAlignment="Center" />
+                <ProgressBar HorizontalAlignment="Right" Width="100" Height="16"
+                             Value="{Binding ProgressBarValue}"
+                             IsVisible="{Binding IsLoading}"
+                             Foreground="DarkSeaGreen"
+                             Margin="10,0,0,0" />
+                <ProgressBar HorizontalAlignment="Right" Width="100" Height="16"
+                             IsVisible="{Binding IsImporting}"
+                             IsIndeterminate="True"
+                             Margin="10,0,0,0" />
+                <ProgressBar HorizontalAlignment="Right" Width="100" Height="16"
+                             IsVisible="{Binding IsError}"
+                             Foreground="Red"
+                             Value="100"
+                             Margin="10,0,0,0" />
+            </Grid>
+        </Border>
+    </Grid>
+
+</Window>
