@@ -6,7 +6,7 @@
 
 Перед началом убедитесь, что у вас установлены:
 
-* [.NET 9 SDK (предварительная версия или финальный релиз)](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
+* [.NET 9 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
 * Git
 * Любая IDE с поддержкой Avalonia (например, [Rider](https://www.jetbrains.com/rider/) или [Visual Studio](https://visualstudio.microsoft.com/) с установленным Avalonia Extension)
 
